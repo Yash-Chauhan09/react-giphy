@@ -9,10 +9,8 @@ function App() {
   const [text, setText] = useState("");
   const [gifs, setGifs] = useState([]);
   const [post, setPost] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const handleChange = async (e) => {
-    setLoading(true);
     setsearchedgif(e.target.value);
     setSelectedGif("");
     const result = await axios.get(
@@ -81,7 +79,7 @@ function App() {
           {gifs &&
             gifs.map((item) => {
               return (
-                <div className="app__sender">
+                <div className="app__senderImages">
                   <img
                     key={item.id}
                     src={item.images.fixed_height.url}
