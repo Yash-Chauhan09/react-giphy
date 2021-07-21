@@ -81,6 +81,7 @@
 }
 .app__posts {
   display: flex;
+  margin-top: 0.1rem;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 570px;
@@ -90,12 +91,6 @@
   width: 280px;
   height: 280px;
   cursor: grabbing;
-}
-.loading {
-  width: 280px;
-  height: 280px;
-  display: grid;
-  place-items: center;
 }
 
 /* media queries */
