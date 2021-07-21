@@ -104,4 +104,7 @@
   .app__senderInput {
     margin: 5px 0;
   }
+  .app__senderBottom {
+    height: 250px;
+  }
 }
