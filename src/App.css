@@ -83,6 +83,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 570px;
+  background-color: #eff2f5;
+}
+.app__posts > img {
+  width: 280px;
+  height: 280px;
+  cursor: grabbing;
+}
+.loading {
+  width: 280px;
+  height: 280px;
+  display: grid;
+  place-items: center;
 }
 
 /* media queries */

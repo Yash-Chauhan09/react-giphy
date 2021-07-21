@@ -14,7 +14,7 @@ function App() {
     setsearchedgif(e.target.value);
     setSelectedGif("");
     const result = await axios.get(
-      `https://api.giphy.com/v1/gifs/search?api_key=6zMcr6zKphIFS9tKAbSP5gPisXHuo58R&q=${e.target.value}`
+      `https://api.giphy.com/v1/gifs/search?api_key=6zMcr6zKphIFS9tKAbSP5gPisXHuo58R&limit=10&q=${e.target.value}`
     );
     setGifs(result.data.data);
     if (searchedgif === "") {
@@ -28,13 +28,14 @@ function App() {
       image: selectedgif,
     };
     if (text === "" || selectedgif === "") {
-      alert("please write something");
+      alert("please fill both fields");
     } else {
       setPost((oldArr) => {
-        setSelectedGif("");
-        setsearchedgif("");
         return [...oldArr, content];
       });
+      setSelectedGif("");
+      setsearchedgif("");
+      setText("");
     }
   };
   return (
@@ -64,7 +65,7 @@ function App() {
               <Button
                 type="submit"
                 size="small"
-                color="primary"
+                style={{ backgroundColor: "#1c73e6", color: "white" }}
                 variant="contained"
               >
                 Post
@@ -76,10 +77,10 @@ function App() {
               <img src={selectedgif} alt="selected" />
             </div>
           )}
-          {gifs &&
-            gifs.map((item) => {
-              return (
-                <div className="app__senderImages">
+          <div className="app__posts">
+            {gifs &&
+              gifs.map((item) => {
+                return (
                   <img
                     key={item.id}
                     src={item.images.fixed_height.url}
@@ -90,9 +91,9 @@ function App() {
                       setSelectedGif(e.target.src);
                     }}
                   />
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
         <div className="app__posts">
           {post.map((item) => (
